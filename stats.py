@@ -18,3 +18,10 @@ def get_book_text(filepath: str) -> str:
     with open(filepath) as f: # If file isn't found, FileNotFoundError happens here
         return f.read() 
     
+def generate_report(char_count):
+      
+    report_data = [{"char": char, "num": count} for char, count in char_count.items() if char.isalpha()]
+    # Sort the list by character count in descending order
+    report_data.sort(key=lambda x: x['num'], reverse=True)
+    return report_data
+    
